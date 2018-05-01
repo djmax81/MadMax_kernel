@@ -638,9 +638,6 @@ asmlinkage void bad_el0_sync(struct pt_regs *regs, int reason, unsigned int esr)
 	if (!user_mode(regs)) {
 		sec_debug_set_extra_info_fault(BAD_MODE_FAULT, (unsigned long)regs->pc, regs);
 		sec_debug_set_extra_info_esr(esr);
-#ifdef CONFIG_RKP
-		sec_debug_set_extra_info_hint(hint);
-#endif
 	}
 #endif
 
